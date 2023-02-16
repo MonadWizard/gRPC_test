@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+service DataService {
+  rpc GetData (AccessToken) returns (DataResponse) {}
+}
+
+message AccessToken {
+  string token = 1;
+}
+
+message DataResponse {
+  string data = 1;
+}
+
+
+// ./protos - path to proto file
+// ./fromproto - path to generated python file
+// ./fromproto - path to generated python grpc file
+// protos/test.proto - name of proto file
+// python -m grpc_tools.protoc -I ./protos --python_out=./fromproto --grpc_python_out=./fromproto protos/test.proto

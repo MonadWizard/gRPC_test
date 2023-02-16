@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+message Number {
+    float value = 1;
+}
+
+
+service Calculator {
+    rpc SquareRoot (Number) returns (Number) {}
+    rpc Addition (Number) returns (Number) {}
+    rpc Multiplication (Number) returns (Number) {}
+}
+
+
+
+// ./protos - path to proto file
+// ./fromproto - path to generated python file
+// ./fromproto - path to generated python grpc file
+// protos/test.proto - name of proto file
+// python -m grpc_tools.protoc -I ./protos --python_out=./fromproto --grpc_python_out=./fromproto protos/test.proto
+// python -m grpc_tools.protoc -I . --python_out=. --grpc_python_out=. protos/test2.proto
